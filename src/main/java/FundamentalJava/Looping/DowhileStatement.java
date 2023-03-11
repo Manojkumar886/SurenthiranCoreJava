@@ -8,12 +8,11 @@ public class DowhileStatement
     {
         Scanner scan=new Scanner(System.in);
 
-        int staff=10;
+        int staff=0;
         float time=0;
         int count=0;
 
         do {
-
             System.out.println(staff+" staff-enter login time");
             time =scan.nextFloat();
             if(time>9.15)
@@ -25,7 +24,6 @@ public class DowhileStatement
                 System.out.println("your good time come to school");
             }
             staff--;
-
         }
         while(staff>0);
         System.out.println("this month later commer count is "+count);
