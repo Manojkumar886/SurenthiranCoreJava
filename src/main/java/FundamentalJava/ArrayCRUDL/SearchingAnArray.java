@@ -8,8 +8,8 @@ public class SearchingAnArray
     {
         String Bustypes[]={"TownBus","ATC","Volvo","SleeperCoach","PrivateBus","Mahindra-15","Coach-22","RouteBus","Express"};
 
-        SearchingAnArray search=new SearchingAnArray();
-        search.Checking(Bustypes,Bustypes.length);//Arguments is passed (one is array value another one is integer of array.length)
+//        SearchingAnArray search=new SearchingAnArray();
+//        search.Checking(Bustypes,8);//Arguments is passed (one is array value another one is integer of array.length)
 
 
     }
