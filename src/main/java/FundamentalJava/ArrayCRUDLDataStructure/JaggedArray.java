@@ -1,4 +1,4 @@
-package FundamentalJava.ArrayCRUDL;
+package FundamentalJava.ArrayCRUDLDataStructure;
 
 public class JaggedArray
 {

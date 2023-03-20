@@ -1,4 +1,4 @@
-package FundamentalJava.ArrayCRUDL;
+package FundamentalJava.ArrayCRUDLDataStructure;
 
 import java.util.Scanner;
 
