@@ -5,8 +5,7 @@ import java.util.Arrays;
 
 public class BubbleSort
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args)    {
         double[] pointers={45.3,45.5,56.5,98.9,89.9,65.7,69.1,11.2,32.1,1.1,66.6};
         System.out.println("Before Sorting a array values "+ Arrays.toString(pointers));
 
