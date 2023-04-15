@@ -1,13 +1,10 @@
 package ConsoleApplication;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class InsertedValues  implements  ElectricityBillManagementActios
 {
     ElectricityBillManagement [] managements=new ElectricityBillManagement[5];//Array declared by a class
-
-    Scanner scan=new Scanner(System.in);
 
     public InsertedValues()//Constructor-Initialize object
     {
@@ -18,20 +15,53 @@ public class InsertedValues  implements  ElectricityBillManagementActios
 
     public static void main(String[] args)
     {
+        Scanner scan=new Scanner(System.in);
         InsertedValues values=new InsertedValues();
-//        System.out.println(Arrays.toString(managements
-//        ));
+        do
+        {
+            System.out.println("which process you want performing in your billing statement \n " +
+                    "1.AddnewCustomerDetails\n2.ListallValues\n3.Update\n4.Search\n5.Sort\n6.Delete");
+            int menuitem=scan.nextInt();
+            switch (menuitem)
+            {
+                case 1:
+                    System.out.println("new customer details are created by management Userid,username,billnumber,Emailid,address,amount");
+                    ElectricityBillManagement customer1=new ElectricityBillManagement(scan.nextInt(), scan.next(), scan.nextLong(), scan.next(),scan.next(),scan.nextDouble());
+                    System.out.println(values.AddnewCustomers(customer1));
+                    break;
+                case 2:
+                    System.out.println("Electricity customer details is viewed");
+                    values.ListallCustomerdetails();
+                    break;
+                default:
+                    System.out.println("not matching");
+            }
+        }
+        while (true);
     }
 
+
     @Override
-    public String AddnewCustomers()
+    public String AddnewCustomers(ElectricityBillManagement customer)
     {
-        return null;
+        for(int i=0;i< managements.length;i++)
+        {
+            if(managements[i]==null)
+            {
+                managements[i]=customer;
+                return customer.getUsername()+" has been added in electricity management successfully";
+            }
+        }
+        return customer.getUsername()+" has not been added in your values";
     }
 
     @Override
     public void ListallCustomerdetails()
     {
+        for(ElectricityBillManagement bill:managements)
+        {
+            System.out.println(bill);
+        }
 
     }
 
