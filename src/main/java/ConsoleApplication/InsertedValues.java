@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class InsertedValues  implements  ElectricityBillManagementActios
 {
+    Scanner scan=new Scanner(System.in);
     ElectricityBillManagement [] managements=new ElectricityBillManagement[5];//Array declared by a class
 
     public InsertedValues()//Constructor-Initialize object
@@ -33,6 +34,14 @@ public class InsertedValues  implements  ElectricityBillManagementActios
                     System.out.println("Electricity customer details is viewed");
                     values.ListallCustomerdetails();
                     break;
+                case 3:
+                    System.out.println("which customer name you want update");
+                    String customer=scan.next();
+                    values.UpdatingCustomerdetails(customer);
+                    break;
+                case 4:
+                    System.out.println("");
+
                 default:
                     System.out.println("not matching");
             }
@@ -58,6 +67,7 @@ public class InsertedValues  implements  ElectricityBillManagementActios
     @Override
     public void ListallCustomerdetails()
     {
+
         for(ElectricityBillManagement bill:managements)
         {
             System.out.println(bill);
@@ -68,6 +78,24 @@ public class InsertedValues  implements  ElectricityBillManagementActios
     @Override
     public void UpdatingCustomerdetails(String name)
     {
+        for(int index=0;index< managements.length;index++)
+        {
+            if(managements[index].getUsername().equalsIgnoreCase(name))
+            {
+                System.out.println(name+" which index calue you want update");
+                System.out.println(managements[index]);
+                String FieldName=scan.next();
+                switch (FieldName)
+                {
+                    case "Username":
+                        String newstud=scan.next();
+                        managements[index].setUsername(newstud);
+                        break;
+                }
+                System.out.println(FieldName+"has been updated"+name);
+                return;
+            }
+        }
 
     }
 
