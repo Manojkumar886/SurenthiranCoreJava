@@ -12,6 +12,9 @@ public class InsertedValues  implements  ElectricityBillManagementActios
         managements[0]=new ElectricityBillManagement(1001,"Manojkumar",887654535679l,"manojgeetha12.10.2001@gmail.com","7/234-1 Agaram,Elachipalayam",345.3);
         managements[1]=new ElectricityBillManagement(1002,"Surenthiran",7575656756756l,"Sura1@gmail.com","9/78-Salem",90.1);
         managements[2]=new ElectricityBillManagement(1003,"Annamalai",909097866545l,"Annamalais@gmail.com","56-12/Guhai,Salem",980);
+        managements[3]=new ElectricityBillManagement(1004,"Razak",339097866545l,"RazakRassedha@gmail.com","123.4-22,Chennai",234);
+        managements[4]=new ElectricityBillManagement(1005,"Nandhakumar",4219097866545l,"Nandhayuvasri@gmail.com","34/23,Kallakuruchi",7800);
+
     }
 
     public static void main(String[] args)
@@ -41,7 +44,12 @@ public class InsertedValues  implements  ElectricityBillManagementActios
                     break;
                 case 4:
                     System.out.println("");
-
+                    break;
+                case 6:
+                    System.out.println("which name you want delete to electricity bill management");
+                    String username= scan.next();
+                    values.DeletingCustomerdetail(username);
+                    break;
                 default:
                     System.out.println("not matching");
             }
@@ -53,15 +61,30 @@ public class InsertedValues  implements  ElectricityBillManagementActios
     @Override
     public String AddnewCustomers(ElectricityBillManagement customer)
     {
-        for(int i=0;i< managements.length;i++)
+       try
+       {
+           for(int i=0;i< managements.length;i++)
+           {
+               if(managements[i]==null)
+               {
+                   managements[i]=customer;
+                   return customer.getUsername()+" has been added in electricity management successfully";
+               }
+           }
+           throw  new ElectricityBillException();
+       }
+       catch (ElectricityBillException EBE)
         {
-            if(managements[i]==null)
+            System.out.println(EBE+" memory is full,so you delete a one value....");
+            for(ElectricityBillManagement EBM:managements)
             {
-                managements[i]=customer;
-                return customer.getUsername()+" has been added in electricity management successfully";
+                System.out.println(EBM.getUsername());
             }
+            System.out.println("which name you are delete");
+            DeletingCustomerdetail(scan.next());
+            AddnewCustomers(customer);
         }
-        return customer.getUsername()+" has not been added in your values";
+       return customer.getUsername()+" has been added successfully";
     }
 
     @Override
@@ -108,6 +131,12 @@ public class InsertedValues  implements  ElectricityBillManagementActios
     @Override
     public void DeletingCustomerdetail(String name)
     {
-
+        for(int index=0;index< managements.length;index++)
+        {
+            if(managements[index].getUsername().equalsIgnoreCase(name)) {
+                managements[index] = null;
+                System.out.println(name + " has been deleted successfully");
+            }
+        }
     }
 }

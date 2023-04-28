@@ -1,32 +1,42 @@
 package Exception;
 
+import java.util.InputMismatchException;
+
 public class ThrowKeyword
 {
 //    throw keyword is used to customized/user defined exception has throw to use..
 //    throw keyword is used to method definition
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         ThrowKeyword obj1=new ThrowKeyword();
-        ThrowKeyword obj2;
         try
         {
-            obj1.process();
+            obj1.process(null);
         }
-        catch(NullPointerException NPE)
+        catch (NullPointerException npe)
         {
-            System.out.println("null pointer exception is caughtto second time");
+            System.out.println("in this time my obj declaretion condition is executed");
         }
+        catch(ArithmeticException ae)
+        {
+            System.out.println("in this time arithemetic exception will be executed");
+        }
+
+
     }
-    private void process()
+    public void process(String obj)
     {
         try
         {
+            System.out.println(obj.substring(3,4));
             throw new NullPointerException();
         }
         catch (NullPointerException npe)
         {
-            System.out.println("i have got a nullpointerexception");
+            System.out.println("in this time run a method block null pointer exception is executed");
             throw npe;
         }
+
     }
 }
