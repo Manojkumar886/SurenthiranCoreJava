@@ -76,8 +76,14 @@ public class InsertedValues  implements  ElectricityBillManagementActios,Runnabl
                 switch (FieldName)
                 {
                     case "Username":
+                        System.out.println("please tell us new username");
                         String newstud=scan.next();
                         managements[index].setUsername(newstud);
+                        break;
+                    case "Userid":
+                        System.out.println("please tell us new userid");
+                        int userid=scan.nextInt();
+                        managements[index].setUserid(userid);
                         break;
                 }
                 System.out.println(FieldName+"has been updated"+name);
