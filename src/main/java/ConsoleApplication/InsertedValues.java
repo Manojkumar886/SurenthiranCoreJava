@@ -2,7 +2,7 @@ package ConsoleApplication;
 
 import java.util.Scanner;
 
-public class InsertedValues  implements  ElectricityBillManagementActios
+public class InsertedValues  implements  ElectricityBillManagementActios,Runnable
 {
     Scanner scan=new Scanner(System.in);
     ElectricityBillManagement [] managements=new ElectricityBillManagement[5];//Array declared by a class
@@ -19,42 +19,7 @@ public class InsertedValues  implements  ElectricityBillManagementActios
 
     public static void main(String[] args)
     {
-        Scanner scan=new Scanner(System.in);
-        InsertedValues values=new InsertedValues();
-        do
-        {
-            System.out.println("which process you want performing in your billing statement \n " +
-                    "1.AddnewCustomerDetails\n2.ListallValues\n3.Update\n4.Search\n5.Sort\n6.Delete");
-            int menuitem=scan.nextInt();
-            switch (menuitem)
-            {
-                case 1:
-                    System.out.println("new customer details are created by management Userid,username,billnumber,Emailid,address,amount");
-                    ElectricityBillManagement customer1=new ElectricityBillManagement(scan.nextInt(), scan.next(), scan.nextLong(), scan.next(),scan.next(),scan.nextDouble());
-                    System.out.println(values.AddnewCustomers(customer1));
-                    break;
-                case 2:
-                    System.out.println("Electricity customer details is viewed");
-                    values.ListallCustomerdetails();
-                    break;
-                case 3:
-                    System.out.println("which customer name you want update");
-                    String customer=scan.next();
-                    values.UpdatingCustomerdetails(customer);
-                    break;
-                case 4:
-                    System.out.println("");
-                    break;
-                case 6:
-                    System.out.println("which name you want delete to electricity bill management");
-                    String username= scan.next();
-                    values.DeletingCustomerdetail(username);
-                    break;
-                default:
-                    System.out.println("not matching");
-            }
-        }
-        while (true);
+
     }
 
 
@@ -138,5 +103,48 @@ public class InsertedValues  implements  ElectricityBillManagementActios
                 System.out.println(name + " has been deleted successfully");
             }
         }
+    }
+
+    @Override
+    synchronized public void run()
+    {
+        System.out.println("currently accessed person name by "+Thread.currentThread().getName()+" welcome");
+        Scanner scan=new Scanner(System.in);
+        InsertedValues values=new InsertedValues();
+        do
+        {
+            System.out.println("which process you want performing in your billing statement \n " +
+                    "1.AddnewCustomerDetails\n2.ListallValues\n3.Update\n4.Search\n5.Sort\n6.Delete");
+            int menuitem=scan.nextInt();
+            switch (menuitem)
+            {
+                case 1:
+                    System.out.println("new customer details are created by management Userid,username,billnumber,Emailid,address,amount");
+                    ElectricityBillManagement customer1=new ElectricityBillManagement(scan.nextInt(), scan.next(), scan.nextLong(), scan.next(),scan.next(),scan.nextDouble());
+                    System.out.println(values.AddnewCustomers(customer1));
+                    break;
+                case 2:
+                    System.out.println("Electricity customer details is viewed");
+                    values.ListallCustomerdetails();
+                    break;
+                case 3:
+                    System.out.println("which customer name you want update");
+                    String customer=scan.next();
+                    values.UpdatingCustomerdetails(customer);
+                    break;
+                case 4:
+                    System.out.println("");
+                    break;
+                case 6:
+                    System.out.println("which name you want delete to electricity bill management");
+                    String username= scan.next();
+                    values.DeletingCustomerdetail(username);
+                    break;
+                default:
+                    return;
+            }
+        }
+        while (true);
+
     }
 }
