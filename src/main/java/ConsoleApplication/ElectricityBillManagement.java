@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data //Provided getter setter method
 @NoArgsConstructor//Def-Constuctor
 @AllArgsConstructor//PARA-Constructor
-public class ElectricityBillManagement
+public class ElectricityBillManagement implements Comparable<ElectricityBillManagement>
 {
     private int Userid;
     private String Username;
@@ -18,4 +18,9 @@ public class ElectricityBillManagement
     private double Amount;
 
 
+    @Override
+    public int compareTo(ElectricityBillManagement o)
+    {
+        return getUsername().compareTo(o.Username);
+    }
 }
