@@ -4,11 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 //Encapsulation
 @Data //Provided getter setter method
 @NoArgsConstructor//Def-Constuctor
 @AllArgsConstructor//PARA-Constructor
-public class ElectricityBillManagement implements Comparable<ElectricityBillManagement>
+public class ElectricityBillManagement implements Comparable<ElectricityBillManagement>, Serializable
 {
     private int Userid;
     private String Username;

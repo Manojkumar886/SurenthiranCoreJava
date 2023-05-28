@@ -21,7 +21,6 @@ public class WriteinEncrept
         String mycontent= scan.nextLine();
 
         dos.write(mycontent.getBytes());
-
         System.out.println(file.getName()+" has written in success");
         dos.close();
         fos.close();

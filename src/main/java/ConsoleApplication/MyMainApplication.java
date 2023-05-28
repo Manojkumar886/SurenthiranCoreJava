@@ -13,14 +13,24 @@ public class MyMainApplication
 //        th2.start();
 //        th3.start();
 
-        CollectionExecution collect=new CollectionExecution();
-        Thread th1=new Thread(collect,"Nivash");
-        Thread th2=new Thread(collect,"Nandhakumar");
-        Thread th3=new Thread(collect,"Manikandan");
+//        CollectionExecution collect=new CollectionExecution();
+//        Thread th1=new Thread(collect,"Nivash");
+//        Thread th2=new Thread(collect,"Nandhakumar");
+//        Thread th3=new Thread(collect,"Manikandan");
+//
+//        th1.start();
+//        th2.start();
+//        th3.start();
+
+        FileExecution files=new FileExecution();
+        Thread th1=new Thread(files,"Nivash");
+        Thread th2=new Thread(files,"Nandhakumar");
+        Thread th3=new Thread(files,"Manikandan");
 
         th1.start();
         th2.start();
         th3.start();
+
 
     }
 }
