@@ -62,6 +62,37 @@ public class InsertedValues  implements  ElectricityBillManagementActios,Runnabl
         }
 
     }
+    public String Sorting( String name)
+    {
+//        Scanner scan=new Scanner(System.in);
+//        ZealousCustomerDetails csdetails=null;
+//        System.out.println("which field values you are sorting");
+//        String fieldname=scan.next();
+//        for(int i=0;i<studentdetails.length;i++)
+//        {
+//            for(int j=i+1;j< studentdetails.length;j++)
+//            {
+//                if(fieldname.equalsIgnoreCase("studentname"))
+//                {
+//                    if(studentdetails[i].getStudentName().compareTo(studentdetails[j].getStudentName())>0)
+//                    {
+//                        csdetails=studentdetails[i];
+//                        studentdetails[i]=studentdetails[j];
+//                        studentdetails[j]=csdetails;
+//                    }
+//                } else if (fieldname.equalsIgnoreCase("StudentMobileno"))
+//                {
+//                    if(studentdetails[i].getStudentMobileno()>studentdetails[j].getStudentMobileno())
+//                    {
+//                        csdetails=studentdetails[i];
+//                        studentdetails[i]=studentdetails[j];
+//                        studentdetails[j]=csdetails;
+//                    }
+//                }
+//            }
+//        }
+        return name+"has been sorted succesfully";
+    }
 
     @Override
     public void UpdatingCustomerdetails(String name)
@@ -96,7 +127,14 @@ public class InsertedValues  implements  ElectricityBillManagementActios,Runnabl
     @Override
     public void SearchingCustomerdetail(int userid)
     {
-
+        for(int i=0;i<managements.length;i++)
+        {
+            if(managements[i].getUserid()==userid)
+            {
+                System.out.println(managements[i].getUserid()+" founded at "+i);
+                break;
+            }
+        }
     }
 
     @Override
